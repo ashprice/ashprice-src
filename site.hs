@@ -117,6 +117,7 @@ main = hakyllWith configuration $ do
             >>= (externalizeUrls     $ feedRoot feedConfiguration)
             >>= saveSnapshot         "content"
             >>= (unExternalizeUrls   $ feedRoot feedConfiguration)
+            >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
             >>= loadAndApplyTemplate "templates/default.html"  tagsCtx'
             >>= relativizeUrls
 
@@ -128,6 +129,7 @@ main = hakyllWith configuration $ do
             >>= (externalizeUrls $ feedRoot feedConfiguration)
             >>= saveSnapshot "content"
             >>= (unExternalizeUrls $ feedRoot feedConfiguration)
+            >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
             >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
             >>= relativizeUrls
 
@@ -138,6 +140,7 @@ main = hakyllWith configuration $ do
             list <- postList tags "posts/*" recentFirst
             makeItem list
                 >>= loadAndApplyTemplate "templates/posts.html"   allPostsCtx
+                >>= loadAndApplyTemplate "templates/not-index.html" allPostsCtx
                 >>= loadAndApplyTemplate "templates/default.html" allPostsCtx
                 >>= relativizeUrls
 
@@ -148,6 +151,7 @@ main = hakyllWith configuration $ do
             list <- bibList tags "bibs/*" alphaOrder
             makeItem list
                 >>= loadAndApplyTemplate "templates/posts.html" allBibsCtx
+                >>= loadAndApplyTemplate "templates/not-index.html" allBibsCtx
                 >>= loadAndApplyTemplate "templates/default.html" allBibsCtx
                 >>= relativizeUrls
 
@@ -177,6 +181,7 @@ main = hakyllWith configuration $ do
 
                 makeItem ""
                     >>= loadAndApplyTemplate "templates/posts.html"   postsCtx'
+                    >>= loadAndApplyTemplate "templates/not-index.html" defaultCtx'
                     >>= loadAndApplyTemplate "templates/default.html" defaultCtx'
                     >>= relativizeUrls
 
