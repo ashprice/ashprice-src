@@ -16,7 +16,8 @@ Well, I'll be blogging, for one thing. Mostly just personal rambles, likely to t
 
 After making this post yesterday I ran into an issue making the bibliographies section of the site - that is, having two lists render on a page. I tried a lot of spaghetti code, but in my frustration I eventually made a Stackoverflow post where Li-yao Xia kindly proided the following:
 
-<pre><code class="language-haskell">create ["index.html"] $ do
+```haskell
+create ["index.html"] $ do
         route idRoute
         compile $ do
             let mkposts = postList tags "posts/*" (fmap (take 10) . recentFirst)
@@ -28,7 +29,7 @@ After making this post yesterday I ran into an issue making the bibliographies s
                 >>= loadAndApplyTemplate "templates/index.html"   homeCtx'  -- This template mentions "posts" and "bibs", which will be looked up in homeCtx'
                 >>= loadAndApplyTemplate "templates/default.html" homeCtx'
                 >>= relativizeUrls
-</code></pre>
+```
 
 
 Suffice to say, I was surprised by how simple this was, and now know I'll have to study quite a bit more Haskell if I want to maintain this site.

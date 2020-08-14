@@ -206,4 +206,4 @@ main = hakyllWith configuration $ do
         tocTemplate =
             either error id $ either (error . show) id $
             Pandoc.runPure $ Pandoc.runWithDefaultPartials $
-            Pandoc.compileTemplate "" "$toc$\n$body$"
+            Pandoc.compileTemplate "" "<section style=\"margin-bottom: 2em;\" class=\"toc\">$toc$</section>$body$"

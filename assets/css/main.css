@@ -2631,6 +2631,10 @@ input, select, textarea {
 		padding-left: 1em;
 	}
 
+    .toc ul {
+        margin: 0 0 0 0;
+    }
+
 		ul li {
 			padding-left: 0.5em;
 		}
