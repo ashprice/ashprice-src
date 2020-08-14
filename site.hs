@@ -124,7 +124,7 @@ main = hakyllWith configuration $ do
             -- Render bibs
     match "bibs/*" $ do
         route $ setExtension ".html"
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions withToc
             >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
             >>= (externalizeUrls $ feedRoot feedConfiguration)
             >>= saveSnapshot "content"

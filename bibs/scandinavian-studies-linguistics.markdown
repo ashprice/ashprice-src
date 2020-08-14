@@ -3,51 +3,30 @@ title: "Scandinavian Studies: Linguistics"
 date: 2020-08-13
 ---
 
-<section>
-<h2>Table of contents</h2>
-<ul>
-- <a href="#one">University departments</a>
-- <a href="#two">Other academic institutions</a>
-- <a href="#three">Dialectology</a><ul>
-- <a href="#three-one">Norwegian</a></ul>
-</ul>
-</section>
-
-<hr />
-<section id="one">
-<h2>University departments</h2>
-
+<hr>\n
+## University departments
 - Institut for Nordiske Studier og Sprogvidenskab, Københavns Universitet, <a href="https://nors.ku.dk">https://nors.ku.dk</a>.
-</section>
-<hr />
 
-<section id="two">
-<h2>Other academic institutions</h2>
-
+<hr>\n
+## Other academic institutions
 - Útgáfa Stofnunar Árna Magnússonar, <a href="https://www.arnastofnun.is/is/utgafa-og-gogn">https://www.arnastofnun.is/is/utgafa-og-gogn</a>.
-</section>
-<hr />
 
-<section id="three">
-<h2>Dialectology</h2>
-<section id="three-one">
-<h3>Norwegian</h3>
+<hr>\n
+## Dialectology
+### Norwegian
 
 - <i>Nordavinden og Sola</i>, a page that collates recordings and transcriptions of <i>The North Wind and the Sun</i> in different Norwegian dialects. <a href="https://www.hf.ntnu.no/nos/list.php">https://www.hf.ntnu.no/nos/list.php</a>.
 - Husby, Olav (ed.; 2008). <i>An Introduction to Norwegian Dialects</i>. Trondheim: Tapir Academic Press.
-</section>
-</section>
-<hr />
 
-<h2>Reference grammars</h2>
-
-<h3>Icelandic</h3>
+<hr>\n
+## Reference grammars
+### Icelandic
 
 - Árnarson, Kristján, Kvaran, Guðrún, and Þráinsson, Höskuldur (eds.; 2013). <i>Íslensk tunga</i>. Reykjavík: Almenna Bókafélagið. The most extensive grammar of the modern language.
 
-<h2>Dictionaries</h2>
-
-<h3>Icelandic</h3>
+<hr>\n
+## Dictionaries
+### Icelandic
 
 There are more than I can list, so I have stuck to the ones that I personally find useful. There is only one good bilingual print dictionary, though there is another I have not tried yet that might also be worth getting. Many of these are available on <a href="snara.is">snara.is</a> for a subscription fee; it also collates some freely available elsewhere. Where there are freely available links to access the dictionaries, they are listed.
 
