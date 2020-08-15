@@ -1,5 +1,5 @@
 /* PrismJS 1.21.0
-https://prismjs.com/download.html#themes=prism-twilight&languages=css+clike+javascript+agda+bash+c+csharp+cpp+clojure+d+elixir+erlang+haskell+java+julia+latex+lisp+nix+prolog+python+r+racket+regex+rust+scala+scheme+smalltalk+sql+typescript+typoscript+vim */
+https://prismjs.com/download.html#themes=prism-twilight&languages=markup+css+clike+javascript+agda+bash+basic+batch+bison+c+csharp+cpp+clojure+cmake+d+dart+diff+django+docker+elixir+elm+erlang+fsharp+fortran+git+go+haskell+ignore+java+json+json5+julia+keyman+kotlin+latex+less+lilypond+lisp+lua+makefile+markdown+markup-templating+matlab+mongodb+nginx+nix+ocaml+pascal+perl+php+plsql+powerquery+powershell+prolog+python+r+racket+jsx+tsx+regex+ruby+rust+sass+scss+scala+scheme+smalltalk+sql+typescript+vim+visual-basic+wiki+xml-doc+yaml */
 /**
  * prism.js Twilight theme
  * Based (more or less) on the Twilight theme originally of Textmate fame.
@@ -8,7 +8,6 @@ https://prismjs.com/download.html#themes=prism-twilight&languages=css+clike+java
 code[class*="language-"],
 pre[class*="language-"] {
 	color: white;
-	background: none;
 	font-family: 'Noto Sans Mono', Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
 	text-align: left;
@@ -31,7 +30,6 @@ pre[class*="language-"] {
 
 pre[class*="language-"],
 :not(pre) > code[class*="language-"] {
-	background: hsl(0, 0%, 8%); /* #141414 */
 }
 
 /* Code blocks */
@@ -46,25 +44,21 @@ pre[class*="language-"] {
 
 pre[class*="language-"]::-moz-selection {
 	/* Firefox */
-	background: hsl(200, 4%, 16%); /* #282A2B */
 }
 
 pre[class*="language-"]::selection {
 	/* Safari */
-	background: hsl(200, 4%, 16%); /* #282A2B */
 }
 
 /* Text Selection colour */
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
 	text-shadow: none;
-	background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
 }
 
 pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
 code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	text-shadow: none;
-	background: hsla(0, 0%, 93%, 0.15); /* #EDEDED */
 }
 
 /* Inline code */
@@ -161,8 +155,6 @@ pre[data-line] {
 }
 
 .line-highlight {
-	background: hsla(0, 0%, 33%, 0.25); /* #545454 */
-	background: linear-gradient(to right, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
 	border-bottom: 1px dashed hsl(0, 0%, 33%); /* #545454 */
 	border-top: 1px dashed hsl(0, 0%, 33%); /* #545454 */
 	left: 0;
@@ -178,7 +170,6 @@ pre[data-line] {
 
 .line-highlight:before,
 .line-highlight[data-end]:after {
-	background-color: hsl(215, 15%, 59%); /* #8794A6 */
 	border-radius: 999px;
 	box-shadow: 0 1px white;
 	color: hsl(24, 20%, 95%); /* #F5F2F0 */

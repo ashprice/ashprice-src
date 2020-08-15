@@ -35,6 +35,9 @@ allPostsCtx = basicCtx "All posts"
 allBibsCtx :: Context String
 allBibsCtx = basicCtx "Bibliographies"
 
+allMiscCtx :: Context String
+allMiscCtx = basicCtx "Miscellaneous"
+
 feedCtx :: Context String
 feedCtx = bodyField "description" <> defaultCtx
 
@@ -44,8 +47,8 @@ tagsCtx tags = tagsField "prettytags" tags <> defaultCtx
 postsCtx :: String -> String -> Context String
 postsCtx title list = constField "body" list <> basicCtx title
 
-bibsCtx :: String -> String -> Context String
-bibsCtx title list = constField "body2" list <> basicCtx title
+--bibsCtx :: String -> String -> Context String
+--bibsCtx title list = constField "body2" list <> basicCtx title
 
 -- Feed configuration
 
@@ -78,6 +81,12 @@ postList tags pattern preprocess' = do
 
 bibList :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
 bibList tags pattern preprocess' = do
+    postItemTpl <- loadBody "templates/postitem.html"
+    posts <- preprocess' =<< loadAll pattern
+    applyTemplateList postItemTpl (tagsCtx tags) posts
+
+miscList :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
+miscList tags pattern preprocess' = do
     postItemTpl <- loadBody "templates/postitem.html"
     posts <- preprocess' =<< loadAll pattern
     applyTemplateList postItemTpl (tagsCtx tags) posts
@@ -133,6 +142,18 @@ main = hakyllWith configuration $ do
             >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
             >>= relativizeUrls
 
+    -- Render misc
+    match "misc/*" $ do
+        route $ setExtension ".html"
+        compile $ pandocCompiler
+            >>=loadAndApplyTemplate "templates/post.html" tagsCtx'
+            >>= (externalizeUrls $ feedRoot feedConfiguration)
+            >>= saveSnapshot "content"
+            >>= (unExternalizeUrls $ feedRoot feedConfiguration)
+            >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
+            >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
+            >>= relativizeUrls
+
     -- Render posts list
     create ["posts.html"] $ do
         route idRoute
@@ -155,14 +176,27 @@ main = hakyllWith configuration $ do
                 >>= loadAndApplyTemplate "templates/default.html" allBibsCtx
                 >>= relativizeUrls
 
+    -- Render misc list
+    create ["misc.html"] $ do
+        route idRoute
+        compile $ do
+            list <- miscList tags "misc/*" alphaOrder
+            makeItem list
+                >>= loadAndApplyTemplate "templates/posts.html" allMiscCtx
+                >>= loadAndApplyTemplate "templates/not-index.html" allMiscCtx
+                >>= loadAndApplyTemplate "templates/default.html" allMiscCtx
+                >>= relativizeUrls
+
     -- Index
     create ["index.html"] $ do
         route idRoute
         compile $ do
             let mkposts = postList tags "posts/*" (fmap (Prelude.take 10) . recentFirst)
-                mkbibs = bibList tags "bibs/*" (fmap (Prelude.take 10) . alphaOrder)
+                mkbibs = bibList tags "bibs/*" (fmap (Prelude.take 1000) . alphaOrder)
+                mkmisc = miscList tags "misc/*" (fmap (Prelude.take 1000) . alphaOrder)
                 homeCtx' = field "posts" (const mkposts)
                     <> field "bibs" (const mkbibs)
+                    <> field "misc" (const mkmisc)
                     <> homeCtx
             makeItem ""
                 >>= loadAndApplyTemplate "templates/index.html"   homeCtx'
@@ -199,6 +233,7 @@ main = hakyllWith configuration $ do
     where
         withToc = defaultHakyllWriterOptions
             { Pandoc.writerTableOfContents = True
+            , Pandoc.writerTOCDepth        = 4
             , Pandoc.writerTemplate        = Just tocTemplate
             }
 
