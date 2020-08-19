@@ -186,5 +186,13 @@
 
 				}
 			});
+    // clickable headers
+        $('.post-body').children('h1, h2, h3, h4, h5').each(function () {
+            var id = $(this).attr('id');
+            var text = $(this).html();
 
+            $(this)
+                .html('')
+                .append('<a href="#' + id + '" class="header-link">' + text + '</a>');
+        });
 })(jQuery);

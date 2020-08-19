@@ -6,6 +6,7 @@ import Control.Monad (liftM)
 import Data.List   (stripPrefix, sortBy)
 import Data.Maybe  (fromMaybe)
 import Data.Ord (comparing)
+import qualified Data.Set as S
 import System.FilePath.Posix (takeBaseName, dropExtensions, splitDirectories)
 import qualified Data.Map as M
 import Data.Default (Default (..))
@@ -109,19 +110,18 @@ main = hakyllWith configuration $ do
         compile compressCssCompiler
 
     -- Copy files and images
-    match ("files/*" .||. "files/*/*" .||. "files/*/*/*" .||. "images/*" .||. "images/*/*" .||. "images/*/*/*" .||. "assets/*" .||. "assets/*/*" .||. "assets/*/*/*") $ do
+    match ("images/*" .||. "images/*/*" .||. "images/*/*/*" .||. "assets/*" .||. "assets/*/*" .||. "assets/*/*/*") $ do
         route   idRoute
-        compile copyFileCompiler
-
-    -- Copy favicon, htaccess...
-    match "data/*" $ do
-        route   $ gsubRoute "data/" $ const ""
         compile copyFileCompiler
 
     -- Render posts
     match "posts/*" $ do
         route   $ setExtension ".html"
-        compile $ pandocCompiler
+        compile $ do
+            underlying <- getUnderlying
+            toc <- getMetadataField underlying "tableOfContents"
+            let writerOptions' = maybe defaultHakyllWriterOptions (const withToc) toc
+            pandocCompilerWith defaultHakyllReaderOptions writerOptions'
             >>= loadAndApplyTemplate "templates/post.html"     tagsCtx'
             >>= (externalizeUrls     $ feedRoot feedConfiguration)
             >>= saveSnapshot         "content"
@@ -130,23 +130,31 @@ main = hakyllWith configuration $ do
             >>= loadAndApplyTemplate "templates/default.html"  tagsCtx'
             >>= relativizeUrls
 
-            -- Render bibs
+    -- Render bibs
     match "bibs/*" $ do
         route $ setExtension ".html"
-        compile $ pandocCompilerWith defaultHakyllReaderOptions withToc
-            >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
-            >>= (externalizeUrls $ feedRoot feedConfiguration)
-            >>= saveSnapshot "content"
-            >>= (unExternalizeUrls $ feedRoot feedConfiguration)
-            >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
-            >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
-            >>= relativizeUrls
+        compile $ do
+            underlying <- getUnderlying
+            toc <- getMetadataField underlying "tableOfContents"
+            let writerOptions' = maybe defaultHakyllWriterOptions (const withToc) toc
+            pandocCompilerWith defaultHakyllReaderOptions writerOptions'
+                >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
+                >>= (externalizeUrls $ feedRoot feedConfiguration)
+                >>= saveSnapshot "content"
+                >>= (unExternalizeUrls $ feedRoot feedConfiguration)
+                >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
+                >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
+                >>= relativizeUrls
 
     -- Render misc
     match "misc/*" $ do
         route $ setExtension ".html"
-        compile $ pandocCompiler
-            >>=loadAndApplyTemplate "templates/post.html" tagsCtx'
+        compile $ do
+            underlying <- getUnderlying
+            toc <- getMetadataField underlying "tableOfContents"
+            let writerOptions' = maybe defaultHakyllWriterOptions (const withToc) toc
+            pandocCompilerWith defaultHakyllReaderOptions writerOptions'
+            >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
             >>= (externalizeUrls $ feedRoot feedConfiguration)
             >>= saveSnapshot "content"
             >>= (unExternalizeUrls $ feedRoot feedConfiguration)
@@ -203,7 +211,7 @@ main = hakyllWith configuration $ do
                 >>= loadAndApplyTemplate "templates/default.html" homeCtx'
                 >>= relativizeUrls
 
-    -- Post tags
+        -- Post tags
         tagsRules tags $ \tag pattern -> do
             route idRoute
             compile $ do
@@ -219,26 +227,25 @@ main = hakyllWith configuration $ do
                     >>= loadAndApplyTemplate "templates/default.html" defaultCtx'
                     >>= relativizeUrls
 
-        -- Render RSS feed
-        create ["rss.xml"] $ do
-            route idRoute
-            compile $ do
-                loadAllSnapshots "posts/*" "content"
-                    >>= recentFirst
-                    >>= renderRss feedConfiguration feedCtx
-
+        -- atom
+    create ["atom.xml"] $ do
+        route idRoute
+        compile $ do
+            loadAllSnapshots "posts/*" "content"
+                >>= recentFirst
+                >>= renderAtom feedConfiguration feedCtx
 
     -- Read templates
     match "templates/*" $ compile templateCompiler
     where
         withToc = defaultHakyllWriterOptions
             { Pandoc.writerTableOfContents = True
-            , Pandoc.writerTOCDepth        = 4
-            , Pandoc.writerTemplate        = Just tocTemplate
+            , Pandoc.writerNumberSections = True
+            , Pandoc.writerTOCDepth = 4
+            , Pandoc.writerTemplate = Just tocTemplate
+            , Pandoc.writerHTMLMathMethod = Pandoc.MathJax ""
             }
-
-        -- When did it get so hard to compile a string to a Pandoc template?
         tocTemplate =
             either error id $ either (error . show) id $
             Pandoc.runPure $ Pandoc.runWithDefaultPartials $
-            Pandoc.compileTemplate "" "<section style=\"margin-bottom: 2em;\" class=\"toc\">$toc$</section>$body$"
+            Pandoc.compileTemplate "" "<section class=\"toc\">$toc$</section><section class=\"post-body\">$body$</section>"

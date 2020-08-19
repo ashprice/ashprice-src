@@ -1,89 +1,10 @@
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.4;
-    font-family: 'Noto Sans', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    margin-bottom: .5rem;
-    margin-top: .2rem;
-    text-rendering: optimizeLegibility;
-}
+@import url(fontawesome-all.min.css);
 
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size:1.375rem;
-}
-
-h3 {
-    font-size:1.25rem;
-}
-
-h4 {
-    font-size:1rem;
-}
-
-h5 {
-    font-size:1.125rem;
-}
-
-h6 {
-    font-size:1rem;
-}
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
-
-*,*:before,*:after{
-	-webkit-box-sizing:inherit;
-	-moz-box-sizing:inherit;
-	box-sizing:inherit
-}
-
-html, body {
-    font-size: 100%;
-}
-
-body {
-    cursor:auto;
-    font-style:normal;
-    font-weight:normal;
-    cursor: auto;
-    line-height: 1.5;
-    position: relative;
-    -webkit-text-size-adjust: none;
-    color: rgba(255, 255, 255, 0.55);
-    font-family: "Noto Serif"< "Libertinus Serif", serif;
-}
-
-p {
-    font-family: "Noto Serif", serif;
-    font-size:1rem;
-    font-weight:normal;
-    line-height:1.6;
-    margin-bottom:1.25rem !important;
-    text-rendering:optimizeLegibility;
-}
-
-blockquote, blockquote p {
-    margin: 0 0 1.25rem;
-    padding: .5625rem 1.25rem 0 1.1875rem;
-    border-left: 1px solid #ddd;
-}
-
-li {
-    margin: .75rem 0 .75rem 0;
-}
-
-ul {
-    font-family: "Noto Serif", serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    list-style-position: outside;
-}
+/*
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -99,13 +20,38 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	font-size: 100%;
+	font: inherit;
 	vertical-align: baseline;}
+
+html,body {
+    height:100%;
+    font-size:100%;
+}
+
+html {
+    box-sizing:border-box;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-input, select, textarea {
+body {
+	line-height: 100%;
+    font-size: 100%;
+    cursor: auto;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    position: relative;
+    -webkit-text-size-adjust: none;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: "Noto Serif"< "Libertinus Serif", serif;
+
+}
+
+	input, select, textarea {
 		color: rgba(255, 255, 255, 0.55);
 		font-family: "Noto Serif", "Libertinus Serif", serif;
 		font-size: 16.5pt;
@@ -151,7 +97,7 @@ input, select, textarea {
 .toc {
     float:right;
     margin: 0 0 0 0;
-    font-size:.9rem;
+    font-size:.9em;
     font-family: "Noto Sans";
 }
 
@@ -282,6 +228,7 @@ input, select, textarea {
         line-height: 1.6;
         margin-bottom: 1.25rem;
         text-rendering: optimizeLegibility;
+		margin: 0 0 2em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -305,8 +252,8 @@ input, select, textarea {
 
 		h1.major {
             font-size: 2.5rem;
+			margin: -.5em 0 1.3em 0;
 			position: relative;
-            margin-top: -1.5em;
             padding-top: 1.4375rem;
 			padding-bottom: 0.35em;
 		}
@@ -330,23 +277,23 @@ input, select, textarea {
 			}
 
 	h2 {
-		font-size: 1.375rem;
+		font-size: 1.75em;
 	}
 
 	h3 {
-		font-size: 1.25rem;
+		font-size: 1.1em;
 	}
 
 	h4 {
-		font-size: 1rem;
+		font-size: 1em;
 	}
 
 	h5 {
-		font-size: 1.125rem;
+		font-size: 0.8em;
 	}
 
 	h6 {
-		font-size: 1rem;
+		font-size: 0.6em;
 	}
 
 	@media screen and (max-width: 736px) {
