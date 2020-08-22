@@ -76,6 +76,10 @@ Many of these are available on <a href="snara.is">snara.is</a> for a subscriptio
 - Friðjónsson, Jón (2012). <i>Mergur málsins: Íslensk orðatiltæki, uppruni, saga og notkun</i>. Reykjavík: Örn og örlygur. If this one is of interest/use to you, see <i>Orð að sönnu</i>. The pulisher may be wrong, as it is now published online and <a href="snara.is">snara.is</a> doesn't list the current publisher.
 - Friðjónsson, Jón. (2019). <i>Orð að sönnu: Íslenskir málshættir og orðskviðir</i>. Forlagið/Snara.
 
+## Norse
+
+- Cleasby-Vigfússon. <i>An Icelandic-English Dictionary</i>. Don't let the title fool you. Text here: <a href="http://www.germanic-lexicon-project.org/texts/oi_cleasbyvigfusson_about.html">http://www.germanic-lexicon-project.org/texts/oi_cleasbyvigfusson_about.html</a>
+
 ## Norwegian
 
 - <i>Bokmålsordboka</i> og <i>Nynorskordboka</i>. Available at: <a href="https://ordbok.uib.no/">https://ordbok.uib.no/</a>.
