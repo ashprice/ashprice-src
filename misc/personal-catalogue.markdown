@@ -15,7 +15,10 @@ This is just a personal catalogue of fiction, film, and sites that I like.
 # Film
 
 - <i>Bojack Horseman</i>
+- <span style="font-family:Noto Serif CJK JP, Noto Serif JP">銀魂</span>
 - <i>Ladri di biciclette</i>
+- <span style="font-family:Noto Serif CJK JP, Noto Serif JP">メイドインアビス</span>
+- <i>The Irishman</i>
 
 # Sites
 
@@ -23,6 +26,7 @@ This is just a personal catalogue of fiction, film, and sites that I like.
 - <a href="http://blog.nuclearsecrecy.com/">http://blog.nuclearsecrecy.com/</a>
 - <a href="https://blog.thjread.com/">https://blog.thjread.com/</a>
 - <a href="http://www.chromaticleaves.com/">http://www.chromaticleaves.com/</a>
+- <a href="https://jeff.kim/">Jeff Kim</a>
 - <a href="http://oolongowl.com/">http://oolongowl.com/</a>
 - <a href="https://sigkill.dk/">https://sigkill.dk/</a>
 - <a href="https://plato.stanford.edu/">https://plato.stanford.edu/</a>

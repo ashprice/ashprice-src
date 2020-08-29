@@ -155,6 +155,21 @@ main = hakyllWith configuration $ do
                 >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
                 >>= relativizeUrls
 
+    match "bibs/*/*" $ do
+        route $ setExtension ".html"
+        compile $ do
+            underlying <- getUnderlying
+            toc <- getMetadataField underlying "tableOfContents"
+            let writerOptions' = maybe defaultHakyllWriterOptions (const withToc) toc
+            pandocCompilerWith defaultHakyllReaderOptions writerOptions'
+                >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
+                >>= (externalizeUrls $ feedRoot feedConfiguration)
+                >>= saveSnapshot "content"
+                >>= (unExternalizeUrls $ feedRoot feedConfiguration)
+                >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
+                >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
+                >>= relativizeUrls
+
     -- Render misc
     match "misc/*" $ do
         route $ setExtension ".html"
