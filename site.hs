@@ -39,9 +39,6 @@ allBibsCtx = basicCtx "Bibliographies"
 allMiscCtx :: Context String
 allMiscCtx = basicCtx "Miscellaneous"
 
-allPadCtx :: Context String
-allPadCtx = basicCtx "Programming scratchpad"
-
 feedCtx :: Context String
 feedCtx = bodyField "description" <> defaultCtx
 
@@ -91,12 +88,6 @@ bibList tags pattern preprocess' = do
 
 miscList :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
 miscList tags pattern preprocess' = do
-    postItemTpl <- loadBody "templates/postitem.html"
-    posts <- preprocess' =<< loadAll pattern
-    applyTemplateList postItemTpl (tagsCtx tags) posts
-
-padList :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
-padList tags pattern preprocess' = do
     postItemTpl <- loadBody "templates/postitem.html"
     posts <- preprocess' =<< loadAll pattern
     applyTemplateList postItemTpl (tagsCtx tags) posts
@@ -186,22 +177,6 @@ main = hakyllWith configuration $ do
             >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
             >>= relativizeUrls
 
-    -- Render scratchpad
-    match "scratchpad/*" $ do
-        route $ setExtension ".html"
-        compile $ do
-            underlying <- getUnderlying
-            toc <- getMetadataField underlying "tableOfContents"
-            let writerOptions' = maybe defaultHakyllWriterOptions (const withToc) toc
-            pandocCompilerWith defaultHakyllReaderOptions writerOptions'
-            >>= loadAndApplyTemplate "templates/post.html" tagsCtx'
-            >>= (externalizeUrls $ feedRoot feedConfiguration)
-            >>= saveSnapshot "content"
-            >>= (unExternalizeUrls $ feedRoot feedConfiguration)
-            >>= loadAndApplyTemplate "templates/not-index.html" tagsCtx'
-            >>= loadAndApplyTemplate "templates/default.html" tagsCtx'
-            >>= relativizeUrls
-
     -- Render posts list
     create ["posts.html"] $ do
         route idRoute
@@ -233,17 +208,6 @@ main = hakyllWith configuration $ do
                 >>= loadAndApplyTemplate "templates/posts.html" allMiscCtx
                 >>= loadAndApplyTemplate "templates/not-index.html" allMiscCtx
                 >>= loadAndApplyTemplate "templates/default.html" allMiscCtx
-                >>= relativizeUrls
-
-    -- Render scratchpad list
-    create ["misc/Scratchpad.html"] $ do
-        route idRoute
-        compile $ do
-            list <- padList tags "scratchpad/*" alphaOrder
-            makeItem list
-                >>= loadAndApplyTemplate "templates/posts.html" allPadCtx
-                >>= loadAndApplyTemplate "templates/not-index.html" allPadCtx
-                >>= loadAndApplyTemplate "templates/default.html" allPadCtx
                 >>= relativizeUrls
 
     -- Index
