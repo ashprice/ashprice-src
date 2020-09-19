@@ -31,14 +31,6 @@ HMU if you want to do an exchange, fund a group purchase, or for me to do a revi
                 <td>s</td>
             </tr>
             <tr>
-                <td>Japan obubu 'sencha of the earth'</td>
-                <td>100g</td>
-                <td>What-cha</td>
-                <td>01/2020</td>
-                <td>07/2020</td>
-                <td>d</td>
-            </tr>
-            <tr>
                 <td>Taiwan sencha</td>
                 <td>100g</td>
                 <td>What-cha</td>
@@ -105,14 +97,6 @@ HMU if you want to do an exchange, fund a group purchase, or for me to do a revi
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tarry lapsang crocodile</td>
-                <td>100g</td>
-                <td>Imperial</td>
-                <td>2019</td>
-                <td>Late 2021</td>
-                <td>s</td>
-            </tr>
             <tr>
                 <td>Georgia wild black tea</td>
                 <td>100g</td>
@@ -230,7 +214,7 @@ HMU if you want to do an exchange, fund a group purchase, or for me to do a revi
                 <td>shou</td>
                 <td>100g</td>
                 <td>Imperial</td>
-                <td>?</td>
+                <td></td>
                 <td>s</td>
             </tr>
             <tr>

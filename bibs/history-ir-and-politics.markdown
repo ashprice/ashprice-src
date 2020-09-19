@@ -48,10 +48,15 @@ Groupings are rough; naturally there is overlap between these subjects. This is 
 
 - Beneš, Eduard (September 1922). <a href="https://www.foreignaffairs.com/articles/central-europe/1922-09-15/little-entente"><i>The Little Entente</i></a>. <i>Foreign Affairs</i>, 1 (1).
 - Blakeslee, George H. (September 1922). <a href="https://www.foreignaffairs.com/articles/united-states/1922-09-15/mandates-pacific"><i>The Mandates of the Pacific</i></a>. <i>Foreign Affairs</i>, 1 (1).
+- Bliss, Tasker H. (December 1922). <a href="https://www.foreignaffairs.com/articles/united-states/1922-12-15/evolution-unified-command"><i>The Evolution of the Unified Command</i></a>. <i>Foreign Affairs</i>, 1 (2).
 - Borchard, Edward M. (September 1922). <a href="https://www.foreignaffairs.com/articles/chile/2011-10-07/tacna-arica-controversy"><i>The Tacna-Arica Controversy</i></a>. <i>Foreign Affairs</i>, 1 (1).
 - Boyd, Ernest (September 1922). <a href="https://www.foreignaffairs.com/articles/ireland/1922-09-15/ireland-resurgent-and-insurgent"><i>Ireland: Resurgent and Insurgent</i></a>. <i>Foreign Affairs</i>, 1 (1).
+- Caillaux, Joseph (December 1922). <a href="https://www.foreignaffairs.com/articles/western-europe/1922-12-15/economics-and-politics-europe"><i>Economics and Politics in Europe</i></a>. <i>Foreign Affairs</i>, 1 (2).
 - Dulles, John F. (September 1922). <a href="https://www.foreignaffairs.com/articles/europe/1922-09-15/allied-debts"><i>The Allied Debts</i></a>. <i>Foreign Affairs</i>, 1 (1).
 - Eliot, Charles W. (September 1922). <a href="https://www.foreignaffairs.com/articles/united-states/1922-09-15/next-american-contribution-civilization"><i>The Next American Contribution to Civilization</i></a>. <i>Foreign Affairs</i>, 1 (1).
+- Haskins, Charles H. (December 1922). <a href="https://www.foreignaffairs.com/articles/france/1922-12-15/saar-territory-it-today"><i>The Saar Treaty as It Is Today</i></a>. <i>Foreign Affairs</i>, 1 (2).
+- K. (September 1922). <a href="https://www.foreignaffairs.com/articles/russian-federation/1922-09-15/russia-after-genoa-and-hague"><i>Russia after Genoa and the Hague</i></a>. <i>Foreign Affairs</i>, 1 (1).
+- Kerr, Philip. (December 1922). <a href="https://www.foreignaffairs.com/articles/united-kingdom/1922-12-15/empire-commonwealth"><i>From Empire to Commonwealth</i></a>. <i>Foreign Affairs</i>, 1 (2).
 - Redlich, Josef (September 1922). <a href="https://www.foreignaffairs.com/articles/austria/1922-09-15/reconstruction-danube-countries"><i>Reconstruction in the Danube Countries</i></a>. <i>Foreign Affairs</i>, 1 (1).
 - Tardieu, André (September 1922). <a href="https://www.foreignaffairs.com/articles/france/1922-09-15/policy-france"><i>The Policy of France</i></a>. <i>Foreign Affairs</i>, 1 (1).
 
