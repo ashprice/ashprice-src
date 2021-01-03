@@ -3,7 +3,7 @@ title: "Welsh morphology reference"
 tableOfContents: true
 ---
 
-This is not meant to be a reference grammar, nor for anyone's use but my own; it exists only to jog my memory of different forms. ydan ni ŷn ni
+This is not meant to be a reference grammar, nor for anyone's use but my own; it exists only to jog my memory of different forms. The focus is on verbs, as they are what I have most trouble with.
 
 # Verbs
 
@@ -90,8 +90,8 @@ This is not meant to be a reference grammar, nor for anyone's use but my own; it
             <tr>
                 <td></td>
                 <th>2nd</th>
-                <td>dach chi; ych chi</td>
-                <td>(y)dach chi?; ych chi?</td>
+                <td>dach chi; (d)ych chi</td>
+                <td>(y)dach chi?; (d)ych chi?</td>
                 <td>(dy)dach chi ddim; (ych) chi ddim, so chi</td>
                 <td>o'ch chi/roeddech chi</td>
                 <td>o'ch chi?/oeddech chi?</td>
@@ -117,7 +117,7 @@ This is not meant to be a reference grammar, nor for anyone's use but my own; it
     </table>
 </section>
 
-The preterite, future, and conditional exhibit SM in questions and negatives (in writing - in speech, often in statements as well; and both particularly for the future and conditional.)
+The preterite, future, and conditional exhibit SM in questions and negatives (in writing - in speech, often in statements as well; and both particularly for the future and conditional.) The preterite in particular is rarely used in speech, periphrastic constructions with *gwneud* or *ddaru* being predominant.
 
 #### Periphrastic tenses
 
@@ -131,7 +131,7 @@ The preterite, future, and conditional exhibit SM in questions and negatives (in
 - Conditional perfect: conditional of <i>bod</i> + <i>wedi</i> + VN
 - Perfect continuous: ...<i>wedi bod yn</i>...
 
-#### Existential forms
+#### Indefinite forms
 
 <section>
     <table>

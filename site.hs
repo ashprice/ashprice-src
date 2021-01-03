@@ -110,7 +110,7 @@ main = hakyllWith configuration $ do
         compile compressCssCompiler
 
     -- Copy files and images
-    match ("images/*" .||. "images/*/*" .||. "images/*/*/*" .||. "assets/*" .||. "assets/*/*" .||. "assets/*/*/*") $ do
+    match ("images/*" .||. "images/*/*" .||. "images/*/*/*" .||. "assets/*" .||. "assets/*/*" .||. "assets/*/*/*" .||. "assets/*/*/*/*") $ do
         route   idRoute
         compile copyFileCompiler
 

@@ -11,6 +11,8 @@
         <link rel="alternate" type="application/rss+xml" title="Ash's personal site" href="/rss.xml" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mono">
+        <link rel="stylesheet" type="text/css" href="/assets/js/leipzig.js/dist/leipzig.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/test.css" />
     </head>
     <body class="is-preload">
         $body$
@@ -34,5 +36,12 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+        <script src="/assets/js/leipzig.js/dist/leipzig.min.js"></script>
+        <script src="/assets/js/blog.js"></script>
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                        Leipzig().gloss();
+                });
+        </script>
     </body>
 </html>
