@@ -1,93 +1,12 @@
 <header class="navbar" id="header">
     <a href="/index.html" class="title">Ash Price</a>
-    <!--    <nav> --!>
     <nav>
-        <ul class="navbar-nav bd-navbar-nav flex-row">
-            <li class="nav-item"><a href="/index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="switch_tab(0);">Blog posts</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="switch_tab(1);">Bibliographies</a></li>
-            <li class="nav-item"><a class="nav-link" onclick="switch_tab(2);">Miscellaneous</a></li>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/posts.html">Blog posts</a></li>
+            <li><a href="/bibs.html">Bibliographies</a></li>
+            <li><a href="/misc.html">>Miscellaneous</a></li>
         </ul>
     </nav>
-    <div class="navbar-collapse collapse">
-        <ul class="navbar-nav d-none d-xl-flex" id="navbar_alphabetlist"></ul>
-    </div>
 </header>
-<div class="container-fluid" id="head_container_blog" style="display: none;">
-        <div class="row flex-xl-nowrap">
-                <div class="col-md-3 col-xl-2 DOC_bd-sidebar">
-                        <nav class="collapse DOC_bd-links" id="DOC_bd-docs-nav" aria-label="Documentation navigation">Loading...</nav>
-                </div>
-                <nav class="d-none d-xl-block col-xl-2 DOC_bd-toc" aria-label="Secondary documentation navigation">
-                        <ul class="DOC_section-nav" id="doc_quick_navigation">
-                        Loading...
-                        </ul>
-                </nav>
-                <main class="col-md-9 col-xl-8 py-md-3 pl-md-5 DOC_bd-content" id="doc_main_content">
-                Loading...
-                </main>
-        </div>
-        </div>
     $body$
-<script>
-        _inDebugMode=false;
-        _nonDebugMax=0;
-
-        _dataformat={timestyle: "long", datestyle: "long", hour: "2-digit", minute: "2-digit"};
-
-        loadstr="";
-        loadNote("Loading...")
-
-        function updatePage()
-                {
-                        activepage=document.getElementById("pageselectlist").selectedIndex;
-                        document.getElementById("searchinputvalue").value="";
-                        loadPage(activepage);
-                }
-        function cleanSearch()
-                {
-                        document.getElementById("searchinputvalue").value="";
-                        var rv="";
-                        var radios=document.getElementByName("search_destination");
-                        for(var i=0;i<radios.length;i++)
-                        {
-                                if (radios[i].checked) rv=radios[i].value;
-                        }
-                        searchtarget=rv;
-                        setPageList();
-                        localStorage.setting_searchpurpose=rv;
-                }
-        function refreshOrder()
-                {
-                        var rv="";
-                        var radios=document.getElementsByName("page_order");
-                        for(var i=0;i<radios.length;i++)
-                        {
-                                if (radios[i].checked) rv=radios[i].value;
-                        }
-                        if (rv=="alph") orderalph=true;
-                        else orderalph=false;
-                        loadPage(activepage);
-                        localStorage.setting_pageorder=rv;
-                }
-        function switch_tab(tabid)
-                {
-                        document.getElementById("head_container_blog").style.display="none";
-                        document.getElementById("head_container_bibs").style.display="none";
-                        document.getElementById("head_container_misc").style.display="none";
-                        if (_navbarcontent=="") _navbarcontent=document.getElementById("navbar_alphabetlist").innerHTML;
-                        switch(tabid)
-                        {
-                                case 0:
-                                        document.getElementById("head_container_blog").style.display="inherit";
-                                        document.getElementById("navbar_alphabetlist").innerHTML=_navbarcontent;
-                                        _navbarcontent="";
-                                        prepBlog();
-                                        break;
-                                case 1:
-                                        document.getElementById("head_container_bibs").style.display="inherit";
-                                        document.getElementById("navbar_alphabetlist").innerHTML="";
-                                        break;
-                        }
-                }
-</script>
